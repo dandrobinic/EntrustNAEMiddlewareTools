@@ -37,11 +37,11 @@ apiClient.interceptors.response.use(
 )
 
 export default {
-  otp() {
+  otp(user) {
     return apiClient.post('/otp',{
         "adminApplicationId": "0d8c2665-5feb-4f32-bc85-a0112f583f4c",
         "sharedSecret": "7bqn0l6J-g8pdcmVGqWnJBGNKQDHH-JfEEFfqfTE0SY",
-        "userId": "1077408",
+        "userId": user,
         "applicationId": "95d39451-20e0-4819-931e-a0f3c7e30043"
     })
   }

@@ -15,12 +15,34 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
+import firebase from 'firebase/app'
+import "firebase/auth";
+
 export default{
   data(){
     return {
       email: '',
       password: ''
     }
+  },
+  mounted() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+          console.log('user is logged in');
+          user.getIdToken().then((idToken)=>{
+            this.$store.commit('setStoreToken', idToken)
+            console.log(idToken)
+            console.log(this.$store.getters.getAccessToken)  
+            // return idToken
+          });
+      } else {
+          console.log('user is logged out now')
+      }
+      setTimeout(function(){  
+          firebase.auth().signOut();
+      }, 10000);
+    })
+    console.log(`the component is now mounted.`)
   },
   computed:{
     ...mapState([

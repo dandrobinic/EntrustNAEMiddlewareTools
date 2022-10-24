@@ -9,7 +9,8 @@
     <div id="top-bar" class="admin-ops">
       <router-link :to="{ name: 'Login' }">Login</router-link>
       <router-link :to="{ name: 'SignUp' }">Register</router-link>
-      <router-link :to="{ name: 'Login' }">Configuración</router-link>
+      <router-link :to="{ name: 'ClientPrototype' }">Prototipo Cliente MFA</router-link>
+      <router-link :to="{ name: 'DeviceSeeding' }">Device Seeding</router-link>
       <p>Menu</p>
     </div>
     <div id="nav">
@@ -17,9 +18,9 @@
         <!-- <router-link :to="{ name: 'EventList' }">Events</router-link> -->
         <router-link :to="{ name: 'About' }">Acerca</router-link>
         <router-link :to="{ name: 'ServiceTest' }">Pruebas del Servicio</router-link>
-        <router-link :to="{ name: 'EntrustMonitor' }">Estado del Servicio</router-link>
+        <router-link :to="{ name: 'ServiceMonitor' }">Estado del Servicio</router-link>
         <router-link :to="{ name: 'Reportes' }">Reportes</router-link>
-        <router-link :to="{ name: 'ClientPrototype' }">Prototipo Cliente MFA</router-link>
+        <router-link :to="{ name: 'ServiceConfig' }">Configuración</router-link>
       </div>
     </div>
     <router-view />

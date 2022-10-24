@@ -1,5 +1,5 @@
 <template>
-  <div class="entrust-monitor">
+  <div class="">
     <h1>Pruebas del Servicio</h1>
   </div>
   <div class="test-services">

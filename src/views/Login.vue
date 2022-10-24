@@ -1,11 +1,11 @@
 <template>
     <div>
         <h1>Login</h1>
-        <div class="form-container">
+        <!-- <div class="form-container">
             <input type="email" placeholder="Email" v-model="email">
             <input type="password" placeholder="Contraseña" v-model="password">
             <button @click="login">Login</button>
-        </div>
+        </div> -->
         <div id="login-v2-container">
             <LoginV2 />
         </div>

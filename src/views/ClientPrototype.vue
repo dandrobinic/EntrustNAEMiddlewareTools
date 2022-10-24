@@ -19,6 +19,12 @@ export default {
         return {           
         }
     },
+    mounted(){
+        // To import Entrust SDK script use the following import method
+        // let fingerprintDeviceSDKScript = document.createElement('script')
+        // fingerprintDeviceSDKScript.setAttribute('src', 'https://cloudOrWebRoute/script.js')
+        // document.head.appendChild(fingerprintDeviceSDKScript)
+    },
     methods: {
   
     }

@@ -5,7 +5,9 @@ export default createStore({
   state: {
     loggingIn: false, // to display the spinner
     loginError: null, // to display the Error Message
-    loginSuccessful: false // to display the Success Message
+    loginSuccessful: false, // to display the Success Message
+    accessToken: '', // it might be needed for storing accestoken on firebase auth
+    lastTimeLaunched: null // to store the last time and date a service tes was launched
   },
   mutations: {
     loginStart: state => state.loggingIn = true,
@@ -13,6 +15,14 @@ export default createStore({
       state.loggingIn = false;
       state.loginError = errorMessage;
       state.loginSuccessful = !errorMessage;
+    },
+    setStoreToken(state, accessToken) {
+      state.accessToken = accessToken
+    }
+  },
+  getters: {
+    getAccessToken: state => {
+      return state.accessToken
     }
   },
   actions: {
@@ -28,6 +38,7 @@ export default createStore({
       // .catch(error => {
       //   commit('loginStop', error.response.data.error)
       // })
+      
       firebase.auth().signInWithEmailAndPassword(loginData.email,loginData.password)
       .then(
         (user) => {
