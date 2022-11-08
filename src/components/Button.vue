@@ -13,7 +13,7 @@
 button{
     height: 30px;
     width: 15%;
-    background: rgb(125, 125, 252);
+    background: #EF3829;
     outline: none;
     border: none;
     color: white;

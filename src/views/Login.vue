@@ -6,7 +6,7 @@
             <input type="password" placeholder="Contraseña" v-model="password">
             <button @click="login">Login</button>
         </div> -->
-        <div id="login-v2-container">
+        <div id="login-container">
             <LoginV2 />
         </div>
     </div>
@@ -70,7 +70,7 @@ input{
     width: 15%;
     margin: 10px;
     padding: 10px;
-    background: rgb(125, 125, 252);
+    background: #EF3829;
     outline: none;
     border: none;
     color: white;

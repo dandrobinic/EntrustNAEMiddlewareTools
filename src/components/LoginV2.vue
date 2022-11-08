@@ -25,7 +25,7 @@ export default{
       password: ''
     }
   },
-  mounted() {
+  mounted() {    
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
           console.log('user is logged in');
@@ -38,11 +38,14 @@ export default{
       } else {
           console.log('user is logged out now')
       }
-      setTimeout(function(){  
-          firebase.auth().signOut();
-      }, 10000);
+      // setTimeout(function(){  
+      //     firebase.auth().signOut();
+      // }, 10000);
     })
     console.log(`the component is now mounted.`)
+  },
+  created(){
+    
   },
   computed:{
     ...mapState([
@@ -56,11 +59,11 @@ export default{
       'doFirebaseLogin'
     ]),
     loginSubmit() {
-      this.doFirebaseLogin({
+      return this.doFirebaseLogin({
         email: this.email,
         password: this.password
       })
-    }
+    }    
   }
 }
 

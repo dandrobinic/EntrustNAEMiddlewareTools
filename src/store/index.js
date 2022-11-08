@@ -7,7 +7,7 @@ export default createStore({
     loginError: null, // to display the Error Message
     loginSuccessful: false, // to display the Success Message
     accessToken: '', // it might be needed for storing accestoken on firebase auth
-    lastTimeLaunched: null // to store the last time and date a service tes was launched
+    lastTimeLaunched: null, // to store the last time and date a service tes was launched    
   },
   mutations: {
     loginStart: state => state.loggingIn = true,
@@ -15,6 +15,7 @@ export default createStore({
       state.loggingIn = false;
       state.loginError = errorMessage;
       state.loginSuccessful = !errorMessage;
+      // alert("Error al autenticarse " + errorMessage)
     },
     setStoreToken(state, accessToken) {
       state.accessToken = accessToken
@@ -44,12 +45,15 @@ export default createStore({
         (user) => {
             commit('loginStop', null)
             console.log(user);
+            console.log("User is successfully logged");          
+            // alert("User successfully logged");
         },
         (err) => {
             commit('loginStop', err)
+            
         }
       ).catch((error) => {
-        commit('loginStop', error.response.data.error)
+        commit('loginStop', error.response.data.error)        
         // const errorCode = error.code;
         // const errorMessage = error.message;        
       })       

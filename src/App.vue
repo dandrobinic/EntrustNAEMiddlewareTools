@@ -40,14 +40,17 @@
 }
 
 #top-bar {
+    color: #fff;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-color: #dadada;
+    background-color: #EF3829;
 }
 
 #top-bar > a,#top-bar > p{
   margin-right: 22px;
+  color:#fff;
+  text-decoration: none;
 }
 
 #nav {

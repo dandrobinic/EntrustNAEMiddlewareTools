@@ -8,6 +8,7 @@ const apiClient = axios.create({
   }
 })
 
+// Calculate the time elapsed since the api call until getting a response
 apiClient.interceptors.request.use(
   config => {
     const newConfig = { ...config }
@@ -37,12 +38,23 @@ apiClient.interceptors.response.use(
 )
 
 export default {
+  // Creates and Send OTP - Funcion Productiva
   otp(user) {
     return apiClient.post('/otp',{
         "adminApplicationId": "0d8c2665-5feb-4f32-bc85-a0112f583f4c",
         "sharedSecret": "7bqn0l6J-g8pdcmVGqWnJBGNKQDHH-JfEEFfqfTE0SY",
         "userId": user,
         "applicationId": "95d39451-20e0-4819-931e-a0f3c7e30043"
+    })
+  },
+  // Obtener la información de conexión con PCA
+  getPcaInfo() {
+    return apiClient.get('/dev/getpcainfo')
+  },
+  switchDatacenter(datacenterId) {
+    console.log("datacenterId (In MiddlewareNaeService): ", datacenterId);
+    return apiClient.post('/dev/switchdatacenter',{
+      "datacenterId": datacenterId
     })
   }
 }
