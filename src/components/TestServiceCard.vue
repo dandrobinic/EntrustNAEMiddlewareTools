@@ -1,7 +1,7 @@
 <template>
     <div class="test-serv-card">
       <div class="l-col">
-        <h4>{{ service.title }} (PRODUCTION TEST) </h4> 
+        <h4>{{ service.title }} </h4> 
         <div class="form-container">
             <input id="user" type="text" placeholder="User" v-model="user">
         </div>
