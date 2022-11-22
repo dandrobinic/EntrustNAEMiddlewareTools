@@ -1,12 +1,12 @@
 <template>
     <div class="test-serv-card">
       <div class="l-col">
-        <h4>{{ service.title }}</h4> 
+        <h4>{{ service.title }} (PRODUCTION TEST) </h4> 
         <div class="form-container">
             <input id="user" type="text" placeholder="User" v-model="user">
         </div>
         <div class="summarize-info">
-          <h3>TIempo promedio <small>(ultimas 200 transacciones)</small></h3>
+          <h3>TIempo promedio <small>(ultimas 50 transacciones)</small></h3>
           <p>744ms</p>
           <h3>Total OTP solicitados</h3>
           <p>1.8 mill</p>
