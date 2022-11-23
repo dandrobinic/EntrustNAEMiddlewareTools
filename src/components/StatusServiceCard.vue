@@ -4,17 +4,21 @@
           <input id="user" type="text" placeholder="User" v-model="user">
       </div> -->
       <div class="datacenter-info">
-        <h3>Datacenter Claro</h3>
-          <input type="radio" id="triara" value="Triara" v-model="selectedDatacenter" :disabled="disableSelector">
-          <label for="triara">Triara</label>
-          <br>
-          <input type="radio" id="venecia" value="Venecia" v-model="selectedDatacenter" :disabled="disableSelector">
-          <label for="venecia">Venecia</label>
-          <br>
-          <br>
-          <p><strong>Datacenter Actual:</strong> {{ selectedDatacenter }}</p>
-          <p><strong>Tiempo de conexión:</strong><span> 75445 hs</span></p>
+        <h3>Información del Servicio</h3>
+        <!-- <input type="radio" id="triara" value="Triara" v-model="selectedDatacenter" :disabled="disableSelector">
+        <label for="triara">Triara</label>
+        <br>
+        <input type="radio" id="venecia" value="Venecia" v-model="selectedDatacenter" :disabled="disableSelector">
+        <label for="venecia">Venecia</label>
+        <br>           -->
+        <div class="summarize-info">
+          <p>Datacenter Actual: {{ selectedDatacenter }}</p>
+          <p>Tiempo de conexión:<span> 75445 hs</span></p>
+          <p>Tiempo promedio <small>(ultimas 50 transacciones)</small>:<span> 744ms</span></p>
+          <p>Total OTP solicitados:<span> 1.8 mill</span></p>
+        </div>
       </div>
+    
     
       <div class="resultBox">
         <span >Date:{{ getCurrentDate() }}</span>
@@ -24,7 +28,7 @@
       </div>
       <!-- <v-button :disabled="!user" :class="{ disableBtn: !user }" @click="sendMiddlewareNaeServiceTest">Test</v-button>
        -->
-    </div>
+  </div>
 </template>
 
 <script>
@@ -111,6 +115,10 @@ data() {
     border-left: 1px solid #9b9b9b;
     padding: 25px 25px;
     margin: 0px 15px 0px 0px;
+}
+
+.summarize-info p{
+  font-size: 12px;
 }
 
 /* .status-serv-card:hover {

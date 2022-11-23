@@ -21,8 +21,8 @@ export default {
                     {
                         "id": 1,
                         "category": "",
-                        "title": "Creates & send OTP",
-                        "description": "Creates & send OTP",
+                        "title": "Crear & Enviar OTP",
+                        "description": "Crea & Envia OTP al usuario Entrust o a un numero telefonico en especifico ",
                         "date": "January 28, 2022",
                         "time": "12:00",                        
                     }

@@ -14,8 +14,8 @@
       <button v-if="accessToken" @click=logout()>Logout</button>
       <p>Menu</p>
     </div>
-    <div id="nav">
-      <div v-if="accessToken" class="general-ops">
+    <div v-if="accessToken" id="nav">
+      <div class="general-ops">
         <!-- <router-link :to="{ name: 'EventList' }">Events</router-link> -->
         <!-- <router-link :to="{ name: 'About' }">Acerca</router-link> -->
         <router-link :to="{ name: 'ServiceTest' }">Pruebas del Servicio</router-link>

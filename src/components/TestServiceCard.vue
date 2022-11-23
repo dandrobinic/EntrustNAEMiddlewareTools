@@ -1,25 +1,25 @@
 <template>
     <div class="test-serv-card">
       <div class="l-col">
-        <h4>{{ service.title }} </h4> 
+        <h3>{{ service.title }} </h3> 
         <div class="form-container">
-            <input id="user" type="text" placeholder="User" v-model="user">
-        </div>
-        <div class="summarize-info">
-          <h3>TIempo promedio <small>(ultimas 50 transacciones)</small></h3>
-          <p>744ms</p>
-          <h3>Total OTP solicitados</h3>
-          <p>1.8 mill</p>
-        </div>
+            <div class="form-row">
+              <input id="user" type="text" placeholder="Introduzca el Usuario Entrust" v-model="user"> 
+              <v-button :disabled="!user" :class="{ disableBtn: !user }" @click="sendMiddlewareNaeServiceTest">Enviar</v-button>               
+            </div>
+            <div class="form-row">
+              <input id="phone" type="text" placeholder="Introduzca el Num. de celular" v-model="phone">
+              <v-button :disabled="!phone" :class="{ disableBtn: !phone }">Enviar</v-button>
+            </div>
+        </div>        
       </div>
       <div class="r-col">
         <div class="resultBox">
-          <span v-if="responseStatus">Last Time Launched:{{ getCurrentDate() }}</span>
+          <span v-if="responseStatus" class="service-status-response">Last Time Launched:{{ getCurrentDate() }}</span>
           <p v-if="responseStatus" class="service-status-response">Resultado: <span>exitoso</span></p>
           <p v-if="responseStatus" class="service-status-response">Mensaje de Respuesta: OTP Succesfully Created - Service is Active</p>
           <p v-if="responseStatus" class="service-status-response">Time Response: {{responseDuration}} ms</p>
         </div>
-        <v-button :disabled="!user" :class="{ disableBtn: !user }" @click="sendMiddlewareNaeServiceTest">Test</v-button>
       </div>
     </div>
 </template>
@@ -33,6 +33,7 @@ export default {
 data() {
     return {
       user: null,
+      phone: null,
       message: '',
       responseData: null,
       responseStatus: null,
@@ -96,7 +97,25 @@ data() {
   opacity:0.5;
 }
 .form-container{
+    display: flex;
+    flex-direction: column;
     margin: 12px 0;
+}
+
+.form-container .form-row{
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-container button{
+  height: 40px;
+}
+
+.form-container input{
+  margin-bottom: 15px;
+  padding: 10px;
+  width: 100%;
+  margin-right: 15px;
 }
 .test-serv-card {
   display: flex;
@@ -131,11 +150,18 @@ data() {
 }
 
 .test-serv-card .resultBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 22px;
     width: 100%;
     height: 100%;
     border: 1px solid #9b9b9b;
-    margin-bottom: 25px;
     box-sizing: border-box;
+}
+
+.test-serv-card .resultBox .service-status-response{
+  margin: 12px 0px;
 }
 
 /* .test-serv-card:hover {
