@@ -7,14 +7,15 @@
   </div> -->
   <div id="app">
     <div id="top-bar" class="admin-ops">
-      <router-link :to="{ name: 'Login' }">Login</router-link>
-      <router-link :to="{ name: 'SignUp' }">Register</router-link>
+      <router-link v-if="!accessToken" :to="{ name: 'Login' }">Login</router-link>
+      <!-- <router-link :to="{ name: 'SignUp' }">Register</router-link> -->
       <!-- <router-link :to="{ name: 'ClientPrototype' }">Prototipo Cliente MFA</router-link> -->
       <!-- <router-link :to="{ name: 'DeviceSeeding' }">Device Seeding</router-link> -->
+      <button v-if="accessToken" @click=logout()>Logout</button>
       <p>Menu</p>
     </div>
     <div id="nav">
-      <div class="general-ops">
+      <div v-if="accessToken" class="general-ops">
         <!-- <router-link :to="{ name: 'EventList' }">Events</router-link> -->
         <!-- <router-link :to="{ name: 'About' }">Acerca</router-link> -->
         <router-link :to="{ name: 'ServiceTest' }">Pruebas del Servicio</router-link>
@@ -29,6 +30,28 @@
     </div>
   </div>
 </template>
+
+<script>
+import { mapState , mapActions } from 'vuex';
+
+export default {
+  name: 'app',
+  computed:{
+    ...mapState([    
+      'accessToken'
+    ]) 
+  },
+  methods: {
+    ...mapActions([
+      'fetchAccessToken',
+      'logout'
+    ]),
+  },
+  created() {
+    this.fetchAccessToken();
+  }
+}
+</script>
 
 <style>
 #app {
@@ -49,6 +72,7 @@
 
 #top-bar > a,#top-bar > p{
   margin-right: 22px;
+  margin-left: 22px;
   color:#fff;
   text-decoration: none;
 }

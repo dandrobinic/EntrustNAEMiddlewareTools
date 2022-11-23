@@ -4,7 +4,7 @@
         <img src="/loading.gif" alt="Loading Icon">
       </div>
       <p v-if="loginError">{{ loginError }}</p>
-      <p v-if="loginSuccessful">Login Successful</p>
+      <p v-if="accessToken">Login Successful</p>
       <form @submit.prevent="loginSubmit">
         <input type="email" placeholder="E-Mail" v-model="email">
         <input type="password" placeholder="Password" v-model="password">
@@ -25,38 +25,48 @@ export default{
       password: ''
     }
   },
-  mounted() {    
+  mounted() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
           console.log('user is logged in');
-          user.getIdToken().then((idToken)=>{
-            this.$store.commit('setStoreToken', idToken)
-            console.log(idToken)
-            console.log(this.$store.getters.getAccessToken)  
-            // return idToken
-          });
+          // user.getIdToken().then((idToken)=>{
+          //   localStorage.setItem('accessToken', idToken);
+          //   this.$store.commit('loginStop', null);
+          //   this.$store.commit('updateAccessToken', idToken)
+          //   console.log("idToken: ",idToken)
+          //   console.log("getAccessToken (GETTERS): ",this.$store.getters.getAccessToken)  
+          //   // return idToken
+          // }).catch((error) => {
+          //   this.$store.commit('loginStop', error);
+          //   this.$store.commit('updateAccessToken', null);
+          // });
+
+          // Autologging out the user after 10 seconds after being logged in succcesfully
+          setTimeout(() => {  
+              //firebase.auth().signOut();
+              //this.logout();
+              console.log("pasaron 10 segs despues de que el estado de autenticacion del usuario paso a loggeado");
+          }, 10000);
       } else {
           console.log('user is logged out now')
-      }
-      // setTimeout(function(){  
-      //     firebase.auth().signOut();
-      // }, 10000);
+      }      
     })
     console.log(`the component is now mounted.`)
-  },
-  created(){
-    
   },
   computed:{
     ...mapState([
       'loggingIn',
       'loginError',
-      'loginSuccessful'
+      //'loginSuccessful'
+      'accessToken',
+      'authenticated'
+
     ]) 
   },
   methods:{
     ...mapActions([
-      'doFirebaseLogin'
+      'doFirebaseLogin',
+      'logout'
     ]),
     loginSubmit() {
       return this.doFirebaseLogin({

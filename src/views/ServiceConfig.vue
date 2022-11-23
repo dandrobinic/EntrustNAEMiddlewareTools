@@ -87,18 +87,10 @@ export default {
           document.getElementById("loading").style.display = "none";
           this.switchingDatacenter = false;
         })  
-
         // setTimeout(() => {
         //   document.getElementById("loading").style.display = "none";
         //   this.switchingDatacenter = false;
         // }, 5000);
-        // axios.delete('/api/artist/'+id)
-        // .then(resp => {
-        //     this.artists.data.splice(index, 1);
-        // })
-        // .catch(error => {
-        //     console.log(error);
-        // })
       }else{
         console.log("No se realizara ninguna acción")        
       }
