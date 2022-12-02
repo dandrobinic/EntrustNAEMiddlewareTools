@@ -7,19 +7,19 @@
   </div> -->
   <div id="app">
     <div id="top-bar" class="admin-ops">
-      <router-link v-if="!accessToken" :to="{ name: 'Login' }">Login</router-link>
+      <!-- <router-link v-if="!accessToken" :to="{ name: 'Login' }">Login</router-link> -->
       <!-- <router-link :to="{ name: 'SignUp' }">Register</router-link> -->
       <!-- <router-link :to="{ name: 'ClientPrototype' }">Prototipo Cliente MFA</router-link> -->
       <!-- <router-link :to="{ name: 'DeviceSeeding' }">Device Seeding</router-link> -->
-      <button v-if="accessToken" @click=logout()>Logout</button>
-      <p>Menu</p>
+      <button class="logoutBtn" v-if="accessToken" @click=logout()>Cerrar Sesión<font-awesome-icon icon="right-from-bracket" /></button>
+      <p v-if="accessToken"><span>Menu</span></p>
     </div>
     <div v-if="accessToken" id="nav">
       <div class="general-ops">
         <!-- <router-link :to="{ name: 'EventList' }">Events</router-link> -->
         <!-- <router-link :to="{ name: 'About' }">Acerca</router-link> -->
-        <router-link :to="{ name: 'ServiceTest' }">Pruebas del Servicio</router-link>
         <router-link :to="{ name: 'ServiceMonitor' }">Estado del Servicio</router-link>
+        <router-link :to="{ name: 'ServiceTest' }">Pruebas del Servicio</router-link>
         <router-link :to="{ name: 'Reportes' }">Reportes</router-link>
         <router-link :to="{ name: 'ServiceConfig' }">Configuración</router-link>
       </div>
@@ -54,8 +54,12 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body{
+  margin: 0;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Roboto,Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -63,6 +67,7 @@ export default {
 }
 
 #top-bar {
+    min-height: 50px;
     color: #fff;
     display: flex;
     justify-content: flex-end;
@@ -75,6 +80,21 @@ export default {
   margin-left: 22px;
   color:#fff;
   text-decoration: none;
+}
+
+#top-bar .logoutBtn{
+  height: 28px;
+  background: #fdfdfd;
+  outline: none;
+  border: none;
+  color: #0c0c0c;
+  text-align: center;
+  line-height: 0px;
+  border-radius: 5px;
+}
+
+#top-bar .logoutBtn > svg{
+  padding: 0 5px 0 12px;
 }
 
 #nav {
@@ -93,6 +113,7 @@ export default {
 }
 
 #nav .general-ops a{
+  text-decoration: none;
   padding: 10px;
 }
 
@@ -103,12 +124,16 @@ export default {
 }
 
 #nav a {
-  font-weight: bold;
   color: #2c3e50;
 }
 
 #nav a.router-link-exact-active {
-  color: #1a6198;
+  font-weight: 600;
+  border-bottom:2px solid red;
+}
+
+h1{
+  font-size: 1.5rem;
 }
 
 h4 {

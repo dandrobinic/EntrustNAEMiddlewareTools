@@ -21,8 +21,16 @@ export default {
                     {
                         "id": 1,
                         "category": "",
-                        "title": "Crear & Enviar OTP",
-                        "description": "Crea & Envia OTP al usuario Entrust o a un numero telefonico en especifico ",
+                        "title": "Enviar OTP Via Entrust",
+                        "description": "Crea & Envia OTP al usuario a traves de Entrust por el medio seleccionado",
+                        "date": "October 01 2021",
+                        "time": "12:00",
+                    },
+                    {
+                        "id": 2,
+                        "category": "",
+                        "title": "Enviar OTP Via PCA",
+                        "description": "Crea & Envia OTP al numero telefonico ingresado a traves del servicio de mensajeria de Claro PCA (SMPP Server)",
                         "date": "January 28, 2022",
                         "time": "12:00",                        
                     }

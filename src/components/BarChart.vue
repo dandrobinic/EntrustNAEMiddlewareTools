@@ -57,7 +57,7 @@
           labels: [ 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo' ],
           datasets: [ { 
             label: 'Promedio Solicitudes/Segundos',
-            data: [0, 0.5, 0.7, 1, 3, 2, 0.4] 
+            data: [2, 2.5, 1.6, 1.3, 2, 0.6, 0.1] 
           } ]
         },
         chartOptions: {

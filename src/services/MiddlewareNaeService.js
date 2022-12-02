@@ -47,10 +47,17 @@ export default {
         "applicationId": "95d39451-20e0-4819-931e-a0f3c7e30043"
     })
   },
+  sendOtpViaPca(message,phoneNumber) {
+    return apiClient.post('/sendSmsViaSmppAndPca',{
+        "message": message,
+        "phoneNumber": phoneNumber
+    })
+  },
   // Obtener la información de conexión con PCA
   getPcaInfo() {
     return apiClient.get('/dev/getpcainfo')
   },
+  // Cambiar el apuntamiento hacia el datancenter de conexión con PCA
   switchDatacenter(datacenterId) {
     console.log("datacenterId (In MiddlewareNaeService): ", datacenterId);
     return apiClient.post('/dev/switchdatacenter',{

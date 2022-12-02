@@ -62,7 +62,7 @@ export default createStore({
           commit("setAuthentication", true) // trigger setAuthentication method mutations to alter authenticated attribute            
           localStorage.setItem('accessToken', "kdjaflkajflkuh47h8o7hw8o4caehsldhjkahjdaskdjhakld7g35497834575hfwijkhkjdjhfsfjds"); // store accessToken in LocaStorage
           commit('updateAccessToken', "kdjaflkajflkuh47h8o7hw8o4caehsldhjkahjdaskdjhakld7g35497834575hfwijkhkjdjhfsfjds"); // trigger updateAccessToken method mutations to alter corresponding attributes
-          router.push('/dashboard');
+          router.push('/service-monitor');
         },
         (err) => {          
             commit('updateAccessToken', null);

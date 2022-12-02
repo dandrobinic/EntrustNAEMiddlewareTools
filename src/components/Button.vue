@@ -12,14 +12,13 @@
 
 button{
     height: 30px;
-    width: 15%;
+    min-width: 160px;
     background: #EF3829;
     outline: none;
     border: none;
     color: white;
     text-align: center;
     line-height: 0px;
-    min-width: 100px;
     padding: 15px 25px;
 }
 

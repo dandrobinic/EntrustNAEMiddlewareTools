@@ -20,9 +20,9 @@ const routes = [
     component: () => import(/* webpackChunkName: "Login" */ './../views/Login.vue') // this way of routing is faster as every component is Lazy Loaded
   },
   {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: () => import(/* webpackChunkName: "Dashboard" */ './../views/Dashboard.vue') // this way of routing is faster as every component is Lazy Loaded
+    path: '/service-monitor',
+    name: 'ServiceMonitor',
+    component: () => import(/* webpackChunkName: "ServiceMonitor" */ './../views/ServiceMonitor.vue') // this way of routing is faster as every component is Lazy Loaded
   },
   {
     path: '/signup',
@@ -40,11 +40,6 @@ const routes = [
     name: 'EventDetails',
     props: true,
     component: EventDetails
-  },
-  {
-    path: '/service-monitor',
-    name: 'ServiceMonitor',
-    component: () => import(/* webpackChunkName: "ServiceMonitor" */ './../views/ServiceMonitor.vue') // this way of routing is faster as every component is Lazy Loaded
   },
   {
     path: '/service-test',
@@ -86,6 +81,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   // store.dispatch('fetchAccessToken');
   if (to.fullPath !== '/login' && !store.state.accessToken) next('/login')
+  if (to.fullPath === '/login' && store.state.accessToken) next('/service-monitor')
   else next()
   
   // if (to.fullPath !== '/login') {    

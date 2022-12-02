@@ -12,7 +12,9 @@
         <label for="venecia">Venecia</label>
         <br>           -->
         <div class="summarize-info">
-          <p>Datacenter Actual: {{ selectedDatacenter }}</p>
+          <p>Datacenter Actual: {{ selectedDatacenter }}</p>          
+          <p>IP: 172.22.93.244</p>
+          <p>Puerto: 8001</p>          
           <p>Tiempo de conexión:<span> 75445 hs</span></p>
           <p>Tiempo promedio <small>(ultimas 50 transacciones)</small>:<span> 744ms</span></p>
           <p>Total OTP solicitados:<span> 1.8 mill</span></p>
@@ -21,7 +23,8 @@
     
     
       <div class="resultBox">
-        <span >Date:{{ getCurrentDate() }}</span>
+        <!-- <span >Date:{{ getCurrentDate() }}</span> -->
+        <span >Semana: 20/11/2022 al 26/11/2022</span>
         <div class="chart-container">
           <v-bar-chart>chart-container</v-bar-chart>
         </div>
@@ -118,7 +121,7 @@ data() {
 }
 
 .summarize-info p{
-  font-size: 12px;
+  font-size: 0.8rem;
 }
 
 /* .status-serv-card:hover {

@@ -1,15 +1,20 @@
 <template>
     <div class="login">
+      <h1>Login</h1>
       <div v-if="loggingIn" class="container-loading">
         <img src="/loading.gif" alt="Loading Icon">
       </div>
+      
       <p v-if="loginError">{{ loginError }}</p>
       <p v-if="accessToken">Login Successful</p>
       <form @submit.prevent="loginSubmit">
         <input type="email" placeholder="E-Mail" v-model="email">
         <input type="password" placeholder="Password" v-model="password">
-        <button type="submit">Login</button>
+        <button type="submit">Ingresar</button>
       </form>
+      <div class="alternate-ops">
+        <a href="#">olvide la constraseña</a>
+      </div>
     </div>
   </template>
 
@@ -81,14 +86,19 @@ export default{
 
 <style scoped>
     .login {
-      border: 1px solid black;
-      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 0.1px solid rgb(0,-2,-2,0.18);
       padding: 1.5rem;
       width: 300px;
+      min-height: 320px;
       margin-left: auto;
       margin-right: auto;
       position: relative;
-      overflow: hidden;    
+      overflow: hidden;   
+      box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%); 
+      border-top: 5px solid #EF3829;
     } 
     .container-loading {
       position: absolute;
@@ -106,20 +116,36 @@ export default{
       height: 2rem;
     }
     form {
+      height: 100%;
+      justify-content: flex-start;
+      height: 100%;
       display: flex;
-      flex-flow: column;
+      flex-direction: column;
+      margin-bottom: 12px;
+    }
+    form input{
+      margin-bottom: 15px;
+      border: 0.1px solid rgba(0,0,0,.18);
+      outline: none;
     }
     input {
       padding: .5rem;
     }
     button {
       padding: .5rem;
-      background-color: lightgray;
-      border: 1px solid gray;
+      background-color: #EF3829;
+      color: #fff;
+      border: none;
       border-radius: 3px;
-      cursor: pointer;      
+      cursor: pointer;
+      width: 50%;
+      min-width: 50%;
+      margin: 0 auto;      
     }
     button:hover {
       background-color: lightslategray;
+    }
+    .alternate-ops > a{
+      font-size: 0.8rem;
     }
 </style>

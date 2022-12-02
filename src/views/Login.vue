@@ -1,13 +1,13 @@
 <template>
-    <div>
-        <h1>Login</h1>
-        <!-- <div class="form-container">
+    <div>        
+        <div id="login-container">
+            <!--<div class="form-container">
             <input type="email" placeholder="Email" v-model="email">
             <input type="password" placeholder="Contraseña" v-model="password">
             <button @click="login">Login</button>
-        </div> -->
-        <div id="login-container">
-            <LoginV2 />
+            </div>-->        
+            <!-- <h1>Login</h1> -->
+            <LoginV2 />            
         </div>
     </div>
 </template>
@@ -74,6 +74,13 @@ input{
     outline: none;
     border: none;
     color: white;
+}
+
+#login-container{
+    height: calc(100vh - 52px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 </style>

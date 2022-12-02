@@ -10,9 +10,14 @@
           <label for="venecia">Venecia</label>
           <br>
           <br>
-          <span v-if="currentDatacenter == 1"><strong>Datacenter Actual:</strong> Triara </span>
-          <span v-if="currentDatacenter == 2"><strong>Datacenter Actual:</strong> Venecia </span>
-      </div>
+          <div class="currentConfigData">
+            <p v-if="currentDatacenter == 1"><strong>Datacenter Actual:</strong> Triara</p>
+            <p v-if="currentDatacenter == 1"><strong>IP:</strong> 172.24.160.44</p>
+            <p v-if="currentDatacenter == 2"><strong>Datacenter Actual:</strong> Venecia</p>
+            <p v-if="currentDatacenter == 2"><strong>IP:</strong> 172.22.93.244</p>
+            <p v-if="currentDatacenter"><strong>Puerto:</strong> 8001</p>
+          </div>
+        </div>
       <div class="loadingContainer" style="min-height: 50px;">
         <img style="display: none;" id="loading" class="" src="@/assets/loading.gif" height="50px" />
       </div>
@@ -117,6 +122,10 @@ export default {
 
 button{
   margin: 15px 0px 15px 0px;
+}
+
+.service-config .currentConfigData > p{
+  margin: 5px 0;
 }
 
 </style>
